@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+</head>
+<body>
+  <main>
+    <div class="text-content">
+      <h1>Learn to code by watching others</h1>
+      <p>
+        See how experienced developers solve
+        problems in real-time. Watching 
+        scripted tutorials is great, but 
+        understanding how developers think is 
+        invaluable.
+      </p>
+    </div>
+
+    <div class="form-content">
+      <div class="purple-box">
+        <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
+      </div>
+
+      <div class="form-box">
+        <input type="text" id="first-name" placeholder="First Name">
+        <span class="error" id="error-first-name">First Name cannot be empty</span>
+        <input type="text" id="last-name" placeholder="Last Name">
+        <span class="error" id="error-last-name">Last Name cannot be empty</span>
+        <input type="text" id="email-address" placeholder="Email Address">
+        <span class="error" id="error-email-address">Looks like this is not an email</span>
+        <input type="password" id="password" placeholder="Password">
+        <span class="error" id="error-password">Password cannot be empty</span>
+
+        <button onclick="check();">claim your free trial</button>
+
+        <p>By clicking the button, you are agreeing to our <a href="">Terms and Services</a></p>
+      </div>
+    </div>
+    
+  </main>
+
+  <script type="text/javascript">
+    function check()
+    {
+
+      var isDot = document.getElementById("email-address").value.indexOf(".");
+      var isAt = document.getElementById("email-address").value.indexOf("@");
+
+      var isName = false;
+      var isLast = false;
+      var isEmail = false;
+      var isPassword = false;
+
+      if(document.getElementById("first-name").value == '')
+      {
+        document.getElementById("first-name").style.backgroundImage = "url(./images/icon-error.svg)";
+        document.getElementById("first-name").style.border = "2px solid hsl(0, 100%, 74%)";
+        document.getElementById("error-first-name").style.display = "block";
+        isName = false;
+      }
+      else
+      {
+        document.getElementById("first-name").style.backgroundImage = "none";
+        document.getElementById("error-first-name").style.display = "none";
+        document.getElementById("first-name").style.border = "1px solid rgb(214, 214, 214)";
+        isName = true;
+      }
+
+      if(document.getElementById("last-name").value == '')
+      {
+        document.getElementById("last-name").style.backgroundImage = "url(./images/icon-error.svg)";
+        document.getElementById("last-name").style.border = "2px solid hsl(0, 100%, 74%)";
+        document.getElementById("error-last-name").style.display = "block";
+        isLast = false;
+      }
+      else
+      {
+        document.getElementById("last-name").style.backgroundImage = "none";
+        document.getElementById("last-name").style.border = "1px solid rgb(214, 214, 214)";
+        document.getElementById("error-last-name").style.display = "none";
+        isLast = true;
+      }
+
+      if((document.getElementById("email-address").value == '' ) || (isDot == -1 || isAt == -1))
+      {
+        document.getElementById("email-address").style.backgroundImage = "url(./images/icon-error.svg)";
+        document.getElementById("email-address").style.border = "2px solid hsl(0, 100%, 74%)";
+        document.getElementById("error-email-address").style.display = "block";
+        isEmail = false;
+      }
+      else
+      {
+        document.getElementById("email-address").style.backgroundImage = "none";
+        document.getElementById("email-address").style.border = "1px solid rgb(214, 214, 214)";
+        document.getElementById("error-email-address").style.display = "none";
+        isEmail = true;
+      }
+
+      if(document.getElementById("password").value == '')
+      {
+        document.getElementById("password").style.backgroundImage = "url(./images/icon-error.svg)";
+        document.getElementById("password").style.border = "2px solid hsl(0, 100%, 74%)";
+        document.getElementById("error-password").style.display = "block";
+        isPassword = false;
+      }
+      else
+      {
+        document.getElementById("password").style.backgroundImage = "none";
+        document.getElementById("password").style.border = "1px solid rgb(214, 214, 214)";
+        document.getElementById("error-password").style.display = "none";
+        isPassword = true;
+      }
+
+      if(isName && isLast && isEmail && isPassword)
+      {
+        // well-checked fields
+      }
+    }
+  </script>
+</body>
+</html>
